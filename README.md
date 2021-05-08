@@ -21,7 +21,8 @@ Run `bash pubsub.sh` to create pubsub topic, subscription, and create BigQuery d
 Run `python app\main.py`
 Run `python app\subscriber.py` 
 After API and subscriber is activated, go to postman (request URL: http://localhost/api/v1) and post something to check. For an example:
-`{"activities": [
+```
+{"activities": [
 	{
 		"operation": "insert",
 		"table": "table1",
@@ -44,7 +45,8 @@ After API and subscriber is activated, go to postman (request URL: http://localh
 		"col_values": [21, "duasatu"]
 	}
 	]
-}`
+}
+```
 
 Remember that operation, table, col_names, col_values, col_types need to be added.<br>
 Operation which is allowed are: insert and delete. Outside of that, it will return error.
