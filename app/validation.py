@@ -28,10 +28,11 @@ message_payload = {
                     "type": "array",
                     "items": {"type": "string"}
                 },
-                "col_types": {
-                    "type": "array",
-                    "items": {"type": "string"}
-                },
+                "col_types": {"type": "array",
+                            "items": {"enum": [ "string", "bytes", "integer",
+                                                "float", "numeric", "bignumeric",
+                                                "boolean", "timestamp", "date", "time",
+                                                "datetime", "geography", "record"]}},
                 "col_values": {
                     "type": "array"
                 }
@@ -58,4 +59,4 @@ def validate_message(request):
         return print(future.result())
     else:
         invalid_message.append(inputs.errors[0])
-        return "Invalid Message: " + str(len(invalid_message))
+        return f"Invalid Message: {invalid_message}"
